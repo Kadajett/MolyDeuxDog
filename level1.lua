@@ -37,8 +37,12 @@ function scene:createScene( event )
 	crate.x, crate.y = 160, -100
 	crate.rotation = 15
 	
+	local crate2 = display.newImageRect( "crate.png", 90, 90 )
+	crate.x, crate.y = 160, -100
+	crate.rotation = 15
 	-- add physics to the crate
 	physics.addBody( crate, { density=1.0, friction=0.3, bounce=0.3 } )
+	physics.addBody( crate2, { density=1.0, friction=0.3, bounce=0.3 } )
 	
 	-- create a grass object and add physics (with custom shape)
 	local grass = display.newImageRect( "grass.png", screenW, 82 )
@@ -53,6 +57,7 @@ function scene:createScene( event )
 	group:insert( background )
 	group:insert( grass)
 	group:insert( crate )
+	group:insert( crate2 )
 end
 
 -- Called immediately after scene has moved onscreen:
