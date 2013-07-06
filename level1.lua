@@ -7,6 +7,8 @@
 local storyboard = require( "storyboard" )
 local scene = storyboard.newScene()
 
+local playerSpeed = 1;
+
 -- include Corona's "physics" library
 local physics = require "physics"
 physics.start(); physics.pause()
@@ -33,13 +35,33 @@ function scene:createScene( event )
 	background:setFillColor( 128 )
 	
 	-- make a crate (off-screen), position it, and rotate slightly
-	local crate = display.newImageRect( "crate.png", 90, 90 )
+	local crate = display.newImageRect( "crate.png", 90, 180 )
 	crate.x, crate.y = 160, -100
 	crate.rotation = 15
+
+	local crate2 = display.newImageRect("crate.png", 270, 90 )
+	crate.x, crate.y = 0, -100
+	crate.rotation = 45
+
+	local crate3 = display.newImageRect("crate.png", 90, 90 )
+	crate.x, crate.y = -190, -120
+	crate.rotation = 28
+
+	local crate4 = display.newImageRect("crate.png", 90, 90 )
+	crate.x, crate.y = 168, -80
+	crate.rotation = 90
+
+	local crate5 = display.newImageRect("crate.png", 90, 90 )
+	crate.x, crate.y = 260, -100
+	crate.rotation = 78
 	
 
 	-- add physics to the crate
-	physics.addBody( crate, { density=1.0, friction=0.3, bounce=0.3 } )
+	physics.addBody( crate, { density=1.0, friction=0.3, bounce=0.1 } )
+	physics.addBody( crate2, { density=1.0, friction=0.3, bounce=0.1 } )
+	physics.addBody( crate3, { density=1.0, friction=0.3, bounce=0.1 } )
+	physics.addBody( crate4, { density=1.0, friction=0.3, bounce=0.1 } )
+	physics.addBody( crate5, { density=1.0, friction=0.3, bounce=0.1 } )
 	
 	
 	-- create a grass object and add physics (with custom shape)
