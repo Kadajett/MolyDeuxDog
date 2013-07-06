@@ -40,7 +40,7 @@ function scene:createScene( event )
 	crate.rotation = 15
 
 	local crate2 = display.newImageRect("crate.png", 270, 90 )
-	crate.x, crate.y = 260, -100
+	crate.x, crate.y = 0, -100
 	crate.rotation = 45
 
 	local crate3 = display.newImageRect("crate.png", 90, 90 )
