@@ -7,6 +7,8 @@
 local storyboard = require( "storyboard" )
 local scene = storyboard.newScene()
 
+local playerSpeed = 1;
+
 -- include Corona's "physics" library
 local physics = require "physics"
 physics.start(); physics.pause()
@@ -39,7 +41,7 @@ function scene:createScene( event )
 	
 
 	-- add physics to the crate
-	physics.addBody( crate, { density=1.0, friction=0.3, bounce=100.0 } )
+	physics.addBody( crate, { density=1.0, friction=0.3 } )
 	
 	
 	-- create a grass object and add physics (with custom shape)
